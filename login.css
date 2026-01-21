@@ -1,0 +1,181 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    
+    /* --- NEW GIF BACKGROUND --- */
+    background-image: url('yargon-kerman-webp-net-gifmaker-39.gif');
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- 3D Flip Container --- */
+.flip-container {
+    perspective: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.flipper {
+    position: relative;
+    width: 380px;
+    height: 520px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.flip-container.flipped .flipper {
+    transform: rotateY(180deg);
+}
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: rgba(13, 17, 33, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+}
+.back { transform: rotateY(180deg); }
+
+/* --- Form Content --- */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: #fff;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+    position: relative;
+}
+
+/* --- Glitch Effect --- */
+.glitch {
+    position: relative;
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #d30491;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #0878af, 2px 2px #d30491;
+    clip: rect(86px, 450px, 91px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+@keyframes glitch-anim { 0% { clip: rect(42px, 9999px, 44px, 0); transform: skew(0.3deg); } 100% { clip: rect(2px, 9999px, 98px, 0); transform: skew(0deg); } }
+@keyframes glitch-anim2 { 0% { clip: rect(85px, 9999px, 91px, 0); transform: skew(0.2deg); } 100% { clip: rect(9px, 9999px, 86px, 0); transform: skew(0deg); } }
+@keyframes glitch-skew { 0% { transform: skew(1deg); } 100% { transform: skew(-1deg); } }
+
+
+/* --- Input Fields --- */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+.input-group input {
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s;
+    pointer-events: none;
+}
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -15px;
+    font-size: 12px;
+    color: #d30491;
+}
+.input-group input:focus {
+    border-bottom-color: #d30491;
+}
+
+/* --- User Type Radio Buttons --- */
+.user-type {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+.user-type label { margin: 0 10px 0 5px; }
+
+/* --- Action Button with Ripple --- */
+.action-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #d30491, #9c27b0);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+.action-btn:hover { box-shadow: 0 0 20px #d30491; }
+.action-btn span { position: relative; z-index: 1; }
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+    z-index: 0;
+}
+.action-btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* --- Link to switch forms --- */
+.switch-link {
+    text-align: center;
+    margin-top: auto;
+    color: rgba(255, 255, 255, 0.7);
+}
+.switch-link a {
+    color: #a78bfa;
+    text-decoration: none;
+    font-weight: 500;
+}

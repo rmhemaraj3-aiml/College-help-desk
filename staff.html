@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff Dashboard - CollegeHelp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    
+    <link rel="stylesheet" href="staff.css">
+</head>
+<body>
+    <canvas id="c"></canvas>
+
+    <div class="dashboard-wrapper">
+        <nav class="navbar glass-ui">
+            <div class="nav-brand">Staff Dashboard</div>
+            <button id="logout-btn">Logout</button>
+        </nav>
+
+        <main class="ticket-manager">
+            
+            <aside class="sidebar glass-ui">
+                <h3>Filters</h3>
+                <ul>
+                    <li class="active" data-filter="new"><i class="fas fa-inbox"></i> New Tickets</li>
+                    <li data-filter="assigned"><i class="fas fa-user-tag"></i> My Tickets</li>
+                    <li data-filter="resolved"><i class="fas fa-check-circle"></i> Resolved</li>
+                    <li data-filter="knowledge-base"><i class="fas fa-brain"></i> Knowledge Base</li>
+                </ul>
+            </aside>
+
+            <section class="ticket-list glass-ui">
+                <div class="ticket-list-header">
+                    <h3 id="ticket-list-title">New Tickets</h3>
+                </div>
+                <div class="ticket-list-items" id="ticket-list-items"></div>
+            </section>
+
+            <section class="ticket-detail glass-ui">
+                <div class="ticket-detail-placeholder">
+                    <i class="fas fa-arrow-left"></i>
+                    <h2>Select a ticket to view details</h2>
+                </div>
+                <div class="ticket-detail-content">
+                    <div class="detail-header">
+                        <h2 id="detail-ticket-id"></h2>
+                        <span id="detail-created-date"></span>
+                    </div>
+                    <div class="detail-section">
+                        <h4>Student Question</h4>
+                        <p class="detail-question" id="detail-question-text"></p>
+                    </div>
+                    <div class="detail-section">
+                        <h4>Ticket Details</h4>
+                        <p>
+                            <strong>From:</strong> <span id="detail-student-name"></span><br>
+                            <strong>Department:</strong> <span id="detail-department"></span><br>
+                            <strong>Status:</strong> <span id="detail-status"></span>
+                        </p>
+                    </div>
+                    <div class="detail-section">
+                        <h4>Actions</h4>
+                        <form id="actions-form">
+                            <input type="hidden" id="current-ticket-id">
+                            <textarea id="answer-textarea" placeholder="Write your answer or an internal note here..."></textarea>
+                            <div class="actions-buttons">
+                                <button type="button" id="assign-btn">Assign to Me</button>
+                                <button type="button" id="resolve-btn" class="btn-resolve">Resolve & Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="knowledge-base-manager glass-ui">
+                 <div class="kb-header">
+                    <h3>Knowledge Base Management</h3>
+                    <button class="btn-add-new"><i class="fas fa-plus"></i> Add New Document</button>
+                </div>
+                <div class="kb-content">
+                    <table class="kb-table">
+                        <thead>
+                            <tr>
+                                <th>Topic</th>
+                                <th>Content Snippet</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="kb-table-body">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    
+    <div id="kb-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-ui">
+            <h3 id="modal-title">Add New Document</h3>
+            <form id="kb-form">
+                <input type="hidden" id="kb-article-id">
+                <div class="form-group"><label for="kb-topic">Topic</label><input type="text" id="kb-topic" required></div>
+                <div class="form-group"><label for="kb-content">Content</label><textarea id="kb-content" rows="10" required></textarea></div>
+                <div class="modal-actions"><button type="button" id="cancel-btn">Cancel</button><button type="submit" id="save-btn">Save Document</button></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="staff-background.js"></script>
+    <script src="staff-ui.js"></script>
+</body>
+</html>

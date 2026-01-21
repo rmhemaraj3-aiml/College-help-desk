@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollegeHelp - Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <!-- The background is now controlled entirely by CSS -->
+
+    <div class="flip-container">
+        <div class="flipper">
+            <!-- Front of the card: Login Form -->
+            <div class="front">
+                <div class="form-container">
+                    <h1 class="glitch" data-text="CollegeHelp">CollegeHelp</h1>
+                    <form id="login-form">
+                        <div class="input-group">
+                            <input type="text" id="name" required>
+                            <label for="name">Username</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" id="pass" required>
+                            <label for="pass">Password</label>
+                        </div>
+                         <div class="user-type">
+                            <input type="radio" id="login-student" name="login_type" value="student" checked>
+                            <label for="login-student">Student</label>
+                            <input type="radio" id="login-staff" name="login_type" value="staff">
+                            <label for="login-staff">Staff</label>
+                        </div>
+                        <button type="submit" class="action-btn"><span>Login</span></button>
+                    </form>
+                    <p class="switch-link">Don't have an account? <a href="#" id="flip-to-register">Register</a></p>
+                </div>
+            </div>
+
+            <!-- Back of the card: Registration Form -->
+            <div class="back">
+                <div class="form-container">
+                    <h1 class="glitch" data-text="Register">Register</h1>
+                    <form id="register-form">
+                        <div class="input-group">
+                            <input type="text" id="regname" required>
+                            <label for="regname">Username</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" id="regpass" required>
+                            <label for="regpass">Password</label>
+                        </div>
+                         <div class="input-group">
+                            <input type="password" id="reregpass" required>
+                            <label for="reregpass">Repeat Password</label>
+                        </div>
+                         <div class="user-type">
+                            <input type="radio" id="register-student" name="register_type" value="student" checked>
+                            <label for="register-student">Student</label>
+                            <input type="radio" id="register-staff" name="register_type" value="staff">
+                            <label for="register-staff">Staff</label>
+                        </div>
+                        <button type="submit" class="action-btn"><span>Create Account</span></button>
+                    </form>
+                    <p class="switch-link">Already have an account? <a href="#" id="flip-to-login">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- We only need the UI script now -->
+    <script src="login-ui.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

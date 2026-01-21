@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - CollegeHelp</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="student.css">
+</head>
+
+<body>
+
+    <div class="content-wrapper">
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="nav-brand">CollegeHelp</div>
+                <a href="faq.html" class="nav-button">FAQ</a>
+            </div>
+            <div class="nav-user">
+                <span id="student-name">Abishek M</span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </nav>
+
+        <div class="dashboard-container">
+            <main class="chat-container">
+                <header class="chat-header">
+                    <h2>How can I help you today?</h2>
+                </header>
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message bot">
+                        <i class="fa fa-rocket bot-avatar"></i>
+                        <p>Welcome to CollegeHelp! Ask me anything about timetables, fees, events, or scholarships.</p>
+                    </div>
+                </div>
+                <footer class="chat-input-form">
+                    <form id="question-form">
+                        <input type="text" id="question-input" placeholder="Type your question here..." required
+                            autocomplete="off">
+                        <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                    </form>
+                </footer>
+            </main>
+
+            <aside class="ticket-container">
+                <h3>Your Open Tickets</h3>
+                <div class="ticket-list" id="ticket-list">
+                    <div class="ticket">
+                        <div class="ticket-header">
+                            <h4>#TKT-001</h4>
+                            <span class="ticket-department"><i class="fa fa-flask"></i> Science Dept.</span>
+                        </div>
+                        <p class="ticket-question">"What are the specific requirements for the quantum physics
+                            scholarship?"</p>
+                        <div class="ticket-status status-pending">Pending Review</div>
+                    </div>
+                    <div class="ticket">
+                        <div class="ticket-header">
+                            <h4>#TKT-002</h4>
+                            <span class="ticket-department"><i class="fa fa-book"></i> Academics Dept.</span>
+                        </div>
+                        <p class="ticket-question">"Can I get a late submission extension for my project?"</p>
+                        <div class="ticket-status status-progress">In Progress</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <div class="waveWrapper waveAnimation">
+        <div class="waveWrapperInner bgTop">
+            <div class="wave waveTop"
+                style="background-image: url('https://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+        </div>
+        <div class="waveWrapperInner bgMiddle">
+            <div class="wave waveMiddle"
+                style="background-image: url('https://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+        </div>
+        <div class="waveWrapperInner bgBottom">
+            <div class="wave waveBottom"
+                style="background-image: url('https://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+        </div>
+    </div>
+
+    <script src="student.js"></script>
+</body>
+
+</html>

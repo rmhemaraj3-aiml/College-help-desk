@@ -1,0 +1,419 @@
+/* --- New Dark Theme Variables --- */
+:root {
+    --primary-color: #86377b;
+    --background-color: #27273c;
+    --container-bg: rgba(40, 40, 60, 0.6); /* Semi-transparent for frosted glass */
+    --text-color: #f0f0f0;
+    --light-text: #a0a0b0;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- General Styles --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow: hidden; /* Hide scrollbars as content is fixed */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* --- Content Wrapper (to stay on top of waves) --- */
+.content-wrapper {
+    position: relative;
+    z-index: 20;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background-color: var(--container-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    height: 70px;
+    flex-shrink: 0;
+}
+
+.nav-brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#logout-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+#logout-btn:hover {
+    background-color: #a34b98;
+}
+
+/* --- Main Dashboard Layout --- */
+.dashboard-container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.chat-container, .ticket-container {
+    background-color: var(--container-bg);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.chat-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.ticket-container {
+    width: 350px;
+    flex-shrink: 0;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* --- Chat Interface Styling --- */
+.chat-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.chat-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.message p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.message.user {
+    background: linear-gradient(to right, #6a3062, #86377b);
+    color: white;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+}
+
+.message.bot {
+    background-color: rgba(0,0,0,0.2);
+    color: var(--text-color);
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+}
+
+.bot-avatar {
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+.message.loading {
+    color: var(--light-text);
+    font-style: italic;
+}
+
+.chat-input-form {
+    border-top: 1px solid var(--border-color);
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+#question-form {
+    display: flex;
+}
+
+#question-input {
+    flex-grow: 1;
+    border: 1px solid var(--border-color);
+    background-color: rgba(0,0,0,0.2);
+    color: var(--text-color);
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+}
+
+#question-form button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    opacity: 0.7;
+    cursor: pointer;
+    padding: 0 15px;
+    transition: opacity 0.3s;
+}
+#question-form button:hover{
+    opacity: 1;
+}
+
+/* --- Ticket Panel Styling --- */
+.ticket-container h3 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    font-weight: 400;
+}
+
+.ticket-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ticket {
+    background-color: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.ticket-header h4 {
+    margin: 0;
+    font-weight: 500;
+}
+
+.ticket-department {
+    font-size: 12px;
+    color: var(--light-text);
+}
+.ticket-department i {
+    margin-right: 5px;
+}
+
+.ticket-question {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+}
+
+.ticket-status {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.status-pending {
+    color: #ffb86c;
+    background-color: rgba(255, 184, 108, 0.1);
+}
+
+.status-progress {
+    color: #8be9fd;
+    background-color: rgba(139, 233, 253, 0.1);
+}
+
+
+/* --- Wave Animation --- */
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+.waveWrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+    background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
+}
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+}
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+}
+.bgBottom {
+    z-index: 5;
+}
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+.waveTop {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveTop {
+    animation: move_wave 3s;
+    -webkit-animation: move_wave 3s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.waveMiddle {
+    background-size: 50% 120px;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
+
+/* --- Styles for Navbar FAQ Button --- */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-button {
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 8px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+/* --- Styles for the new FAQ Page --- */
+.faq-container {
+    padding: 40px;
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: var(--container-bg);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.faq-container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-item summary {
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 15px 0;
+    outline: none;
+}
+
+.faq-item p {
+    padding: 10px 0 20px 20px;
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+/* Add this to student.css */
+.status-resolved {
+    color: #16a34a;
+    background-color: #d1fae5;
+}
+
+/* Add this to student.css */
+.ticket-answer {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+    font-size: 14px;
+}
+.ticket-answer strong {
+    color: var(--text-color);
+}
+.ticket-answer p {
+    margin: 5px 0 0 0;
+    color: var(--light-text);
+    font-style: italic;
+}
